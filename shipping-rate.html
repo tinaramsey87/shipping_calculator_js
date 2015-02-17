@@ -1,13 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui.structure.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui.theme.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/scripts.js"></script>
+    <script>
+    $(function() {
+      $( "#ship-date" ).datepicker();
+    });
+    </script>
     <title>Shipping Rate Calculator</title>
   </head>
   <body>
+    <div class="container">
+      <div class="col-md-8">
+      <form class="form-group" id="package-info">
+        <label for="from">Zipcode From:</label>
+        <input name="from" id="from" type="text" required> <br> <br>
 
+        <label for="to">Zipcode To:</label>
+        <input name="to" id="to" type="text" required> <br> <br>
+
+        <label for="weight">Weight:</label>
+        <input name="weight" id="weight" type="text" required> <br> <br>
+
+        <label for="package-type">Package Type:</label>
+        <select id="package-type" name="package-type">
+          <option value="envelope">Envelope</option>
+          <option value="small-box">Small Box</option>
+          <option value="medium-box">Medium Box</option>
+          <option value="large-box">Large Box</option>
+          <option value="your-box">Your Box</option>
+        </select> <br> <br>
+
+        <label for="ship-date">Ship Date:</label>
+        <input name="ship-date" id="ship-date" type="text" required> <br> <br>
+
+        <label for="declared-value">Declared Value:</label>
+        <input name="declared-value" id="declared-value" type="text" required> <br> <br>
+
+        <button type="submit" id="calculate" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-ok-sign"></span>Calcuate Shipping Rate</button>
+      </form>
+
+      <div id="dimensions-form">
+        <form class="form-group" id="dimensions">
+          <label for="length">Length:</label>
+          <input name="length" id="length" type="text" required> <br> <br>
+
+          <label for="width">Width:</label>
+          <input name="width" id="width" type="text" required> <br> <br>
+
+          <label for="height">Height:</label>
+          <input name="height" id="height" type="text" required> <br> <br>
+
+          <button type="submit" id="dimension" class="btn btn-lg btn-info"><span class="glyphicon glyphicon-ok-sign"></span>Submit Dimensions</button>
+        </form>
+      </div>
+
+      <div id="shipping-cost">
+        <p>The cost to ship your parcel will be: $<span class="cost"></span>. </p>
+
+      </div>
+      </div>
+    </div>
   </body>
 </html>
